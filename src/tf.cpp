@@ -102,7 +102,8 @@ void TrafficLights::run()
         break;
     case States::YELLOW:
         blinks = 0;
-        turnOffAll();
+        if(_direction == Directions::UP) 
+            turnOffAll();
         turnOnYellow();
         break;
     case States::GREEN:
