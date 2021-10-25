@@ -12,7 +12,7 @@ void setup()
 
 uint32_t currentTime;
 uint32_t prevTime;
-uint32_t waitDelay = 3000;
+uint32_t waitDelay = 1000;
 
 void loop()
 {

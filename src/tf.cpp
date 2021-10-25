@@ -12,22 +12,19 @@ TrafficLights::TrafficLights(uint8_t red, uint8_t yellow, uint8_t green, States 
     pinMode(_pin_green, OUTPUT);
 
     _state = default_state;
-    _direction = (_state == States::RED) ? Directions::UP : Directions::DOWN;
-    _state_index = static_cast<uint8_t>(default_state);
+    _direction = (_state == States::RED) ? Directions::DOWN : Directions::UP;
+    _state_index = 0;
 }
 
 void TrafficLights::nextState()
 {
     States *tmp_states = _directions[static_cast<uint8_t>(_direction)];
 
-    // Serial.print(static_cast<uint8_t>(tmp_states[_state_index]));
-    // Serial.println();
     _state = tmp_states[_state_index];
     _next_state = _state;
     _state_index++;
-    if (_state_index > 3)
+    if (_state_index >= _dir_len)
     {
-
         _state_index = 0;
         if (_direction == Directions::UP)
         {

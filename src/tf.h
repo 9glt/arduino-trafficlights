@@ -22,9 +22,12 @@ public:
         DOWN
     };
 
-    States _directions[2][4] = {
-        {States::BLINK_GREEN, States::YELLOW, States::RED, States::RED},
-        {States::RED, States::RED, States::YELLOW, States::GREEN}};
+    States _directions[2][5] = {
+        {States::BLINK_GREEN, States::YELLOW, States::RED, States::RED, States::RED},
+        {States::RED, States::RED, States::RED, States::YELLOW, States::GREEN},
+    };
+
+    uint8_t _dir_len = sizeof(_directions[0])/sizeof(_directions[0][0]);
 
     TrafficLights(uint8_t red, uint8_t yellow, uint8_t green, States default_state);
 
